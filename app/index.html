@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Cover Studio - GTA-style cover maker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="brand-star">&#9733;</span> VICE COVER STUDIO</div>
+  <p class="tagline">Turn any photo into a bold multi-panel vice cover. Offline, private, one click to PNG.</p>
+</header>
+
+<main class="layout">
+  <aside class="controls">
+    <section>
+      <h2>1. Photos</h2>
+      <label class="upload-btn" for="fileInput">Add your photos (up to 5)</label>
+      <input id="fileInput" type="file" accept="image/*" multiple hidden>
+      <div id="thumbs" class="thumbs"></div>
+      <p class="hint">Click a panel in the preview to select it, then click a photo to place it there. Drag inside the panel to reposition.</p>
+      <div class="row">
+        <button id="fillAllBtn" type="button">One photo fills all panels</button>
+        <button id="resetViewBtn" type="button">Reset crop</button>
+      </div>
+      <label class="slider">Zoom selected photo
+        <input id="zoomRange" type="range" min="1" max="3" step="0.01" value="1">
+      </label>
+      <p id="panelInfo" class="panel-info"></p>
+    </section>
+
+    <section>
+      <h2>2. Layout</h2>
+      <div class="btn-grid">
+        <button type="button" data-layout="sunset">Sunset Grid - 5 panels</button>
+        <button type="button" data-layout="strip">Neon Strip - 5 panels</button>
+        <button type="button" data-layout="duo">Vice Duo - 2 panels</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>3. Colour grade</h2>
+      <div class="btn-grid">
+        <button type="button" data-grade="sunset">Sunset</button>
+        <button type="button" data-grade="neon">Neon Nights</button>
+        <button type="button" data-grade="vicepink">Vice Pink</button>
+        <button type="button" data-grade="noir">Palm Noir</button>
+      </div>
+      <label class="slider">Posterize levels
+        <input id="posterRange" type="range" min="3" max="9" step="1" value="6">
+      </label>
+      <label class="slider">Comic outline
+        <input id="outlineRange" type="range" min="0" max="100" step="1" value="72">
+      </label>
+      <label class="slider">Grade strength
+        <input id="gradeRange" type="range" min="0" max="100" step="1" value="58">
+      </label>
+      <label class="check">
+        <input id="halftoneCheck" type="checkbox"> Halftone print dots
+      </label>
+    </section>
+
+    <section>
+      <h2>4. Caption</h2>
+      <label class="field">Headline
+        <input id="captionInput" type="text" maxlength="26" value="VICE CITY NIGHTS">
+      </label>
+      <label class="field">Sub-caption band
+        <input id="subInput" type="text" maxlength="30" value="MY VICE STORY">
+      </label>
+      <label class="field">Caption position
+        <select id="posSelect">
+          <option value="bottom" selected>Bottom</option>
+          <option value="top">Top</option>
+        </select>
+      </label>
+    </section>
+
+    <section>
+      <h2>5. Export PNG</h2>
+      <div class="btn-grid">
+        <button type="button" data-size="1080x1080">Square 1080x1080</button>
+        <button type="button" data-size="1080x1350">Portrait 1080x1350</button>
+        <button type="button" data-size="1920x1080">Wide 1920x1080</button>
+      </div>
+      <button id="exportBtn" class="export-btn" type="button">Export cover as PNG</button>
+      <p id="status" class="status">Demo scenes are loaded - export right away, or add your own photos.</p>
+    </section>
+  </aside>
+
+  <section id="stage" class="stage">
+    <canvas id="preview" width="864" height="1080"></canvas>
+    <p class="hint center">Drop photo files anywhere on the preview to add them.</p>
+  </section>
+</main>
+
+<footer class="foot">Photos never leave your device - everything renders locally in your browser.</footer>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
