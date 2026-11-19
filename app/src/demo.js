@@ -124,14 +124,13 @@ export function makePortraitScene() {
   ctx.beginPath(); ctx.ellipse(446, 664, 34, 13, 0, 0, 6.2832); ctx.fill();
   // Face modelling: cheek + jaw shadow, nose, brow shadow - flat shapes
   // that survive posterizing as shaded planes, not a blank oval.
-  ctx.fillStyle = 'rgba(146,62,32,0.55)';
-  ctx.beginPath(); ctx.ellipse(520, 612, 52, 84, 0.25, 0, 6.2832); ctx.fill();
-  ctx.beginPath(); ctx.ellipse(446, 706, 74, 20, 0, 0, 3.1416); ctx.fill();
+  ctx.fillStyle = 'rgba(146,62,32,0.45)';
+  ctx.beginPath(); ctx.ellipse(534, 650, 25, 50, 0.25, 0, 6.2832); ctx.fill();
   ctx.beginPath();
   ctx.moveTo(446, 585); ctx.lineTo(428, 640); ctx.lineTo(452, 644);
   ctx.closePath(); ctx.fill();
-  ctx.fillStyle = 'rgba(255,214,170,0.5)';
-  ctx.beginPath(); ctx.ellipse(382, 596, 34, 66, -0.2, 0, 6.2832); ctx.fill();
+  ctx.fillStyle = 'rgba(255,214,170,0.38)';
+  ctx.beginPath(); ctx.ellipse(368, 624, 19, 42, -0.2, 0, 6.2832); ctx.fill();
   // Gold earrings.
   ctx.strokeStyle = '#ffd23e';
   ctx.lineWidth = 7;
