@@ -298,7 +298,7 @@ function drawCaption(ctx, W, H, st) {
     const spx = Math.round(H * 0.034);
     ctx.font = `${spx}px Anton, sans-serif`;
     const w = ctx.measureText(sub).width + spx * 1.6;
-    const y = (atBottom ? -1 : 1) * H * 0.085;
+    const y = (atBottom ? -1 : 1) * H * 0.108;
     ctx.save();
     ctx.translate(0, y);
     ctx.rotate(0.012);

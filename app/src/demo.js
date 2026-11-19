@@ -122,6 +122,37 @@ export function makePortraitScene() {
   // Mouth.
   ctx.fillStyle = '#8c3f28';
   ctx.beginPath(); ctx.ellipse(446, 664, 34, 13, 0, 0, 6.2832); ctx.fill();
+  // Face modelling: cheek + jaw shadow, nose, brow shadow - flat shapes
+  // that survive posterizing as shaded planes, not a blank oval.
+  ctx.fillStyle = 'rgba(146,62,32,0.55)';
+  ctx.beginPath(); ctx.ellipse(520, 612, 52, 84, 0.25, 0, 6.2832); ctx.fill();
+  ctx.beginPath(); ctx.ellipse(446, 706, 74, 20, 0, 0, 3.1416); ctx.fill();
+  ctx.beginPath();
+  ctx.moveTo(446, 585); ctx.lineTo(428, 640); ctx.lineTo(452, 644);
+  ctx.closePath(); ctx.fill();
+  ctx.fillStyle = 'rgba(255,214,170,0.5)';
+  ctx.beginPath(); ctx.ellipse(382, 596, 34, 66, -0.2, 0, 6.2832); ctx.fill();
+  // Gold earrings.
+  ctx.strokeStyle = '#ffd23e';
+  ctx.lineWidth = 7;
+  ctx.beginPath(); ctx.arc(322, 640, 17, 0, 6.2832); ctx.stroke();
+  ctx.beginPath(); ctx.arc(570, 640, 17, 0, 6.2832); ctx.stroke();
+  // Hair shine streak.
+  ctx.strokeStyle = 'rgba(120,70,180,0.8)';
+  ctx.lineWidth = 13;
+  ctx.beginPath(); ctx.arc(446, 470, 105, 3.6, 4.5); ctx.stroke();
+  // Shirt print: dark palm sprigs on the teal.
+  ctx.fillStyle = 'rgba(4,80,74,0.85)';
+  const sprigs = [[250, 920], [620, 905], [300, 1010], [585, 1025], [445, 985]];
+  for (const [sx, sy] of sprigs) {
+    for (let i = 0; i < 5; i++) {
+      const a = -0.5 + i * 0.28;
+      ctx.beginPath();
+      ctx.ellipse(sx + Math.sin(a) * 26, sy - Math.cos(a) * 22, 7, 24, a, 0, 6.2832);
+      ctx.fill();
+    }
+    ctx.fillRect(sx - 3, sy - 6, 6, 30);
+  }
   return c;
 }
 
@@ -157,7 +188,7 @@ export function makeBeachScene() {
 export function makeDriveScene() {
   const [c, ctx] = canvas(1100, 820);
   sky(ctx, 1100, 820, '#0b1038', '#5c1e78', '#e83e6b');
-  stripedSun(ctx, 800, 300, 170, '#ff9e2c');
+  stripedSun(ctx, 545, 300, 175, '#ff9e2c');
   ctx.fillStyle = '#2de2e6';
   for (let i = 0; i < 40; i++) {
     ctx.globalAlpha = 0.35 + (i % 4) * 0.15;
